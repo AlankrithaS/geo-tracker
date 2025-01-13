@@ -1,25 +1,18 @@
 const express = require('express');
-const fs = require('fs');
+const path = require('path');
+
 const app = express();
 
-app.use(express.json());
+// Serve static files from the 'public' folder
+app.use(express.static(path.join(__dirname, 'public')));
 
-app.post('/save-location', (req, res) => {
-  const { latitude, longitude } = req.body;
-  const locationData = `Latitude: ${latitude}, Longitude: ${longitude}\n`;
-  fs.appendFile('lat_long.txt', locationData, (err) => {
-    if (err) {
-      console.error('Error saving location:', err);
-      res.status(500).send('Error saving location');
-    } else {
-      console.log('Location saved:', locationData);
-      res.send('Location saved successfully');
-    }
-  });
+// Serve index.html for the root route
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
 // Start the server
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
+  console.log(`Server is running on port ${PORT}`);
 });
