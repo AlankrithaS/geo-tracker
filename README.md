@@ -1,6 +1,6 @@
 # Location Tracker Project
 
-This project is a simple location-tracking web application that retrieves the exact latitude and longitude of users who click a link and grant location access. The project uses HTML, JavaScript, and Node.js, and is hosted on Vercel.
+This project is a simple location-tracking web application that retrieves the exact latitude and longitude of users who click a link and grant location access. This project uses HTML, JavaScript, and Node.js, and is hosted on Vercel.
 
 ---
 
